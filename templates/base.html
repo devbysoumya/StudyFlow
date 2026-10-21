@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}StudyFlow{% endblock %} · StudyFlow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}"></head>
+<body><div class="layout"><aside class="sidebar">
+<a class="brand" href="{{ url_for('home') }}"><span class="logo">S</span><span>StudyFlow<small>YOUR STUDY WORKSPACE</small></span></a>
+<div class="side-label">MENU</div><a class="nav active" href="{{ url_for('home') }}"><span>▦</span> Overview</a><a class="nav" href="#tasks"><span>✓</span> My tasks</a><a class="nav" href="#add-task"><span>＋</span> Add a task</a>
+<div class="side-bottom"><div class="quote"><span>✦</span><h3>Small steps, big progress.</h3><p>Stay consistent and make today count.</p></div><div class="user"><div class="userpic">S</div><div><b>Student workspace</b><small>Personal planner</small></div></div></div>
+</aside><main class="main"><header class="topbar"><div class="crumb">My workspace <span>/</span> <b>Overview</b></div><div class="date-pill">✧ &nbsp; Your study dashboard</div></header>
+{% with messages=get_flashed_messages(with_categories=true) %}{% if messages %}<div class="flash-wrap">{% for category,message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}</div>{% endif %}{% endwith %}
+{% block content %}{% endblock %}
+<footer>StudyFlow <span>Made for focused learning <b>✦</b></span></footer></main></div></body></html>
