@@ -11,21 +11,21 @@ pipeline {
 
         stage('Setup Python') {
             steps {
-                bat 'python --version'
-                bat 'python -m venv .venv'
+                sh 'python3 --version'
+                sh 'python3 -m venv .venv'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                bat '.venv\\Scripts\\python.exe -m pip install --upgrade pip'
-                bat '.venv\\Scripts\\python.exe -m pip install -r requirements.txt'
+                sh '.venv/bin/python -m pip install --upgrade pip'
+                sh '.venv/bin/python -m pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat '.venv\\Scripts\\python.exe -m pytest -v'
+                sh '.venv/bin/python -m pytest -v'
             }
         }
     }
