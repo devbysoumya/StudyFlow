@@ -1,0 +1,21 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: studyflow
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: studyflow
+  template:
+    metadata:
+      labels:
+        app: studyflow
+    spec:
+      containers:
+        - name: studyflow
+          image: studyflow:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
